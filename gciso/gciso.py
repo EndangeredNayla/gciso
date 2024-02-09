@@ -165,8 +165,6 @@ class IsoFile(object):
             raise IndexError("Offset is out of file bounds!")
         if not isinstance(data, bytes):
             raise TypeError("Data must be bytes!")
-        if offset + len(data) > fileSize:
-            raise ValueError("Cannot change file size!")
         self.file.seek(fileOffset + offset)
         return self.file.write(data)
 
